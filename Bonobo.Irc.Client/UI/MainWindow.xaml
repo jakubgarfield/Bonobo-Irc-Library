@@ -1,0 +1,95 @@
+﻿<Window x:Class="Bonobo.Irc.Client.UI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="clr-namespace:Bonobo.Irc.Client.UI"
+    xmlns:data="clr-namespace:Bonobo.Irc.Client.UI.Data"    
+    Title="Bonobo IRC Client" Height="600" Width="800">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="Close" 
+                        Executed="CloseExecuted" />
+        <CommandBinding Command="{x:Static ui:IrcCommands.Disconnect}" 
+                        Executed="DisconnectExecuted" />
+        <CommandBinding Command="{x:Static ui:IrcCommands.CloseConversation}" 
+                        Executed="CloseConversationExecuted" />
+        <CommandBinding Command="{x:Static ui:IrcCommands.CloseAllConversations}" 
+                        Executed="CloseAllConversationsExecuted" />
+        <CommandBinding Command="{x:Static ui:IrcCommands.Connect}" 
+                        Executed="ConnectExecuted" />
+    </Window.CommandBindings>
+
+    <Window.Resources>
+        <data:IrcConversationProvider x:Key="ConversationProvider" />      
+        <data:IrcConversationDataTemplateSelector x:Key="IrcConversationContentDataTemplateSelector" />
+
+        <DataTemplate x:Key="ItemTemplate">
+                <TextBlock Text="{Binding Header}"  />                
+        </DataTemplate>
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Command="{x:Static ui:IrcCommands.Disconnect}" 
+                    Key="W" Modifiers="Ctrl" />
+        <KeyBinding Command="{x:Static ui:IrcCommands.CloseAllConversations}" 
+                    Key="W" Modifiers="Ctrl+Shift" />
+        <KeyBinding Command="{x:Static ui:IrcCommands.CloseConversation}" 
+                    Key="F4" Modifiers="Ctrl" />
+        <KeyBinding Command="{x:Static ui:IrcCommands.Connect}" 
+                    Key="N" Modifiers="Ctrl" />
+    </Window.InputBindings>
+
+    <Grid DataContext="{StaticResource ConversationProvider}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25px" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Column="0" 
+                   Grid.Row="0" 
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Top">
+            <Menu>
+                <MenuItem Header="_File">
+                    <MenuItem Header="E_xit" 
+                              ToolTip="Exit application" 
+                              Command="Close" />
+                </MenuItem>
+
+                <MenuItem Header="S_erver">
+                    <MenuItem Header="_Connect"
+                              InputGestureText="Ctrl+N" 
+                              ToolTip="Connect to IRC server"
+                              Command="{x:Static ui:IrcCommands.Connect}"
+                              />
+                    <MenuItem Header="_Disconnect"
+                              InputGestureText="Ctrl+W" 
+                              ToolTip="Disconnect from IRC server"
+                              Command="{x:Static ui:IrcCommands.Disconnect}"
+                              />
+                </MenuItem>
+                <MenuItem Header="Con_versation">
+                    <MenuItem Header="Close"
+                              InputGestureText="Ctrl+F4" 
+                              ToolTip="Close conversation"
+                              Command="{x:Static ui:IrcCommands.CloseConversation}"
+                              />
+                    <MenuItem Header="Close All"
+                              InputGestureText="Ctrl+Shift+W" 
+                              ToolTip="Close all conversations"
+                              Command="{x:Static ui:IrcCommands.CloseAllConversations}"
+                              />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        <TabControl Name="tabConversations"
+                    Grid.Row="1"                     
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch"
+                    ItemsSource="{Binding Conversations}"
+                    ItemTemplate = "{StaticResource ItemTemplate}" 
+                    ContentTemplateSelector = "{StaticResource IrcConversationContentDataTemplateSelector}">           
+        </TabControl>
+    </Grid>
+</Window>

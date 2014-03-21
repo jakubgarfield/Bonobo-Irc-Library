@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Garf.Net.Irc.IrcCommands">
+    <Position X="8.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAQAAAAAAAAECIAAEQACABQAIAAAQABAABAAQA=</HashCode>
+      <FileName>IrcCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Garf.Net.Irc.IrcConnection">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="Garf.Net.Irc.IrcConnection.UserState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>IrcConnection.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAEAAAAAgAAAAACAAAAIACAEAAAAACBA=</HashCode>
+      <FileName>IrcConnection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Garf.Net.Irc.IrcSession">
+    <Position X="6.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAiAAAAAgAAAAAAAAABAA=</HashCode>
+      <FileName>IrcSession.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_connection" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="People" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Garf.Net.Irc.SynchronizedObservableCollection&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CkIAEEBACIAEDBABKBAAlCQQwBUAABAECAAAAABQIAI=</HashCode>
+      <FileName>ObservableCollection`1.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="Garf.Net.Irc.IrcPerson">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IrcPerson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Garf.Net.Irc.IrcChannel">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAgAAAAAAAAAgAAAAAAgAAAAACAAAAA=</HashCode>
+      <FileName>IrcChannel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="Garf.Net.Irc.IrcCommand">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAABAAAAA=</HashCode>
+      <FileName>IrcCommand.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="Garf.Net.Irc.IrcCommandType">
+    <Position X="3.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAABA=</HashCode>
+      <FileName>IrcCommandType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
